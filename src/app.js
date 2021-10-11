@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { Home, Signin,Signup,Browse } from './pages';
+import { Home, Signin,Signup,Browse,Watch } from './pages';
 import * as ROUTES from './constants/routes';
 import { useAuthListener } from './hooks';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
@@ -22,9 +22,12 @@ export function App() {
             <ProtectedRoute user={user} path={ROUTES.BROWSE}>
                 <Browse />
             </ProtectedRoute>
+             <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.WATCH}>
+                <Watch />
+            </IsUserRedirect>
             <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.HOME}>
                 <Home />
-            </IsUserRedirect>
+            </IsUserRedirect> 
         </Switch>
     </Router>
   );

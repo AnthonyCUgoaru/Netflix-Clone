@@ -99,6 +99,10 @@ export const PlayArrowSymbol=styled.div`
    
    #playButton
    {
-
+     border:2px solid white;
+     padding:5px;
+     border-radius: 50%;
+     margin-right:10px;
+     font-size:16px;
    }
 `

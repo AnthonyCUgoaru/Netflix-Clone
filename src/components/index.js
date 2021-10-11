@@ -11,3 +11,4 @@ export { default as Card } from './card';
 export { default as Player } from './player';
 export { default as CardItem } from './card-item';
 export { default as Browse } from './browse';
+export { default as Watch } from './watch';

@@ -19,10 +19,6 @@ export function BrowseContainer({slides})
     const [searchTerm,setSearchTerm]=useState("")
     const [slideRows, setSlideRows] = useState([]);
    
-    
-
-    
-
     const { firebase } = useContext(FirebaseContext);
      
      const user = {
@@ -99,8 +95,8 @@ export function BrowseContainer({slides})
                         </Header.Profile>
                     </Header.Group>
                 </Header.Navigation>
+               
                 <Header.Feature> 
-
                     <Header.CoverImage src="/images/misc/hxh.jpg" alt="Feature Picture"/>
                         {/* will be used later <Header.Catergory type="movie"> </Header.Catergory>*/}
                     <Header.Info>
@@ -121,7 +117,21 @@ export function BrowseContainer({slides})
                 <CardContainer/>
                 <CardContainer/>
                 <CardContainer/>
+              
                 
+            <FooterContainer />
+        </Browse>)
+        : (<SelectProfileContainer user={user} setUser={setProfile} />);
+}     
+
+//SelectProfileContainer is passing their props (user and setUser) to BrowseContainer
+//essentially making it so where BrowseContainer is passing data making it equal to the props (almost like a SelectProfileContainer is a template for BrowseContainer)
+//which SelectProfileContainer uses to crate the profile  
+//ex:so the "user" from BrowserContainer will replace any usage of "user" in the SelectProfileContainer 
+//hence displaying the profile in the web browser  
+//"(<SelectProfileContainer user={user} setUser={setProfile} />);" would not work anywhere else unless you have ideal data to give the props that matches their template
+
+  
        
                
                
@@ -162,15 +172,3 @@ export function BrowseContainer({slides})
                     </Card>
                 ))}
             </Card.Group>*/}
-                
-            <FooterContainer />
-        </Browse>)
-        : (<SelectProfileContainer user={user} setUser={setProfile} />);
-}     
-
-//SelectProfileContainer is passing their props (user and setUser) to BrowseContainer
-//essentially making it so where BrowseContainer is passing data making it equal to the props (almost like a SelectProfileContainer is a template for BrowseContainer)
-//which SelectProfileContainer uses to crate the profile  
-//ex:so the "user" from BrowserContainer will replace any usage of "user" in the SelectProfileContainer 
-//hence displaying the profile in the web browser  
-//"(<SelectProfileContainer user={user} setUser={setProfile} />);" would not work anywhere else unless you have ideal data to give the props that matches their template

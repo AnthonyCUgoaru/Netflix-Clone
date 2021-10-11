@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { CardItem } from '../components';
 import {PlayArrow,Add,ThumbUpAltOutlined,ThumbDownAltOutlined} from '@material-ui/icons';
+import * as ROUTES from '../constants/routes';
+
 
 export function CardItemContainer({index}) {
      const [hovered,setHovered]=useState(false);
@@ -30,7 +32,7 @@ export function CardItemContainer({index}) {
              >
                 <CardItem.Info>
                     <CardItem.Icons>
-                        <PlayArrow style={wrapper}/>
+                        <CardItem.PlayArrowSymbol to={ROUTES.WATCH} />
                         <Add style={wrapper}/>
                         <ThumbUpAltOutlined style={wrapper}/>
                         <ThumbDownAltOutlined style={wrapper}/>

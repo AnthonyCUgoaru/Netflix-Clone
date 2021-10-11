@@ -1,9 +1,24 @@
 import styled from 'styled-components';
 import { Link as ReachRouterLink } from 'react-router-dom';
 
+
 export const Background = styled.div`
+    display: flex;
+    flex-direction: column;
+    /*the src is a template to add/set up a backround if not use the "home-bg" imagee as backrground */
+   display: flex;
+    flex-direction: column;
+    background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
+ 
+    @media (max-width: 1100px) 
+    {
+       padding-top:10px; 
+    background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / contain no-repeat;
+     
 
+     }
 
+    /* No greater than 1099px, no less than 400px */
     `
 
 export const Container = styled.div` 
@@ -352,4 +367,6 @@ cursor:pointer;
 
 
 `
+
+
 

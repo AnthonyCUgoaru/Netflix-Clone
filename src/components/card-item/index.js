@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import ReactPlayer from 'react-player'
-import {Container,CardPicture,Info,Icons,Description,ItemInfoTop,Genre,Preview} from './styles/card-item';
+import {PlayArrow} from '@material-ui/icons';
+import { Link as ReachRouterLink } from 'react-router-dom';
+import {Container,CardPicture,Info,Icons,Description,ItemInfoTop,Genre,Preview,PlayArrowSymbol} from './styles/card-item';
 
 
 export default function CardItem({ children, ...restProps }) {
@@ -75,10 +77,14 @@ CardItem.Preview= function CardItemPreview({  children,...restProps }) {
 
 
 
-// CardItem.PlayArrowSymbol = function HeaderPlayArrowSymbol({  ...restProps }) {
-//     return <PlayArrowSymbol {...restProps }>
-//           <PlayArrow id="playButton"/>
+CardItem.PlayArrowSymbol = function HeaderPlayArrowSymbol({to, ...restProps }) {
+    return( 
+         <ReachRouterLink to={to}>
+    <PlayArrowSymbol {...restProps }>
+          <PlayArrow id="playButton"/>
           
-//             </PlayArrowSymbol>
-// }
+            </PlayArrowSymbol>
+        </ReachRouterLink>
+        )
+}
 
