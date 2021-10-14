@@ -22,13 +22,13 @@ export default function Signup()
         event.preventDefault();
 
         firebase
-            .auth()
-                .createUserWithEmailAndPassword(emailAddress, password)
+            .auth()                               
+                .createUserWithEmailAndPassword(emailAddress, password)//validated user
                 .then((result) =>
                     result.user
                     .updateProfile({
                         displayName: firstName,
-                        photoURL: Math.floor(Math.random() * 5 ) + 1,
+                        photoURL: Math.floor(Math.random() * 5 ) + 1, //gets random photo from images/users
                     })
                     .then(() => {
                       
@@ -43,7 +43,7 @@ export default function Signup()
     }
 
     return (
-        <> {/*for adjacent compoents*/}
+        <> {/*for adjacent components*/}
             <HeaderContainer>
                 <Form>
                     <Form.Title>Sign Up</Form.Title>

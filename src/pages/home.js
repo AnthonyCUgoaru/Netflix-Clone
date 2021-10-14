@@ -5,9 +5,6 @@ import {FooterContainer} from '../containers/footer'
 import {HeaderContainer} from '../containers/header'
 import { OptForm,Feature } from '../components';
 
-
-
-
 function Home() {
     return (
       <>
